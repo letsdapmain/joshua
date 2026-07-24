@@ -34,8 +34,6 @@ test("server-renders Joshua's portfolio", async () => {
   const html = await response.text();
   assert.match(html, /<title>Joshua Nwankwo \| Product Engineer and Developer Relations Engineer<\/title>/i);
   assert.match(html, /Joshua Nwankwo/);
-  assert.match(html, /builds products/);
-  assert.match(html, /explain themselves/);
   assert.match(html, /Product Engineering/);
   assert.match(html, /Developer Relations/);
   assert.match(html, /AI tooling/);
@@ -44,9 +42,6 @@ test("server-renders Joshua's portfolio", async () => {
   assert.match(html, /Letsdap/);
   assert.match(html, /Spheron Network/);
   assert.match(html, /Hype Partners/);
-  assert.match(html, /Buildspace Africa/);
-  assert.match(html, /Click to expand/);
-  assert.match(html, /A compact index of shipped proof/);
   assert.match(html, /150\+/);
   assert.match(html, /TechNext24/);
   assert.match(html, /Techpoint Africa/);

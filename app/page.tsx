@@ -1,17 +1,25 @@
 /* eslint-disable @next/next/no-img-element */
 
 const primaryMetrics = [
-  { value: "10k+", label: "external events indexed" },
-  { value: "150+", label: "developer resources" },
-  { value: "20+", label: "ecosystems supported" },
-  { value: "15", label: "workshops and sessions" },
+  { value: "10k+", label: "external events indexed into Letsdap" },
+  { value: "150+", label: "guides, tutorials, articles, and demos" },
+  { value: "20+", label: "protocol ecosystems supported" },
+  { value: "15", label: "workshops, webinars, and community sessions" },
 ];
 
-const heroWords = [
-  "explain themselves",
-  "ship fast",
-  "earn adoption",
-  "stay useful",
+const proofLanes = [
+  {
+    title: "Product Engineering",
+    body: "Owns the shape of production systems: interface, backend, data, real-time flows, payments, monitoring, deployment, and AI-assisted workflows.",
+    tags: ["Letsdap", "Spheron", "AI tooling"],
+    href: "#engineering",
+  },
+  {
+    title: "Developer Experience",
+    body: "Turns complex products into clear developer pathways through demos, guides, workshops, campaigns, and feedback loops.",
+    tags: ["Hype Partners", "Mirror World", "Developer adoption"],
+    href: "#devrel",
+  },
 ];
 
 const selectedWork = [
@@ -21,7 +29,6 @@ const selectedWork = [
     role: "Founder",
     period: "2024 - Present",
     href: "https://letsdap.com",
-    signal: "Product built",
     line: "Event management and social networking platform rebuilt from proof of concept into a live beta product.",
     proof: ["Full-stack rebuild", "Live payments", "Realtime check-ins", "Mobile in progress"],
     stack: "Next.js 16 / React 19 / NestJS / MongoDB / Redis / Expo",
@@ -31,7 +38,6 @@ const selectedWork = [
     title: "Spheron Network",
     role: "Founding Frontend Engineer",
     period: "2021 - 2022",
-    signal: "Systems shipped",
     line: "Helped move a decentralized hosting MVP into a production-grade platform.",
     proof: ["Auth", "Dashboards", "GitHub deploys", "Token payments"],
     stack: "React / Next.js / TypeScript / Redux / Web3.js",
@@ -42,21 +48,9 @@ const selectedWork = [
     role: "Developer Relations Engineer",
     period: "2023 - 2025",
     href: "https://github.com/Hype-DevRel/Alvara-NFT",
-    signal: "Developer adoption",
     line: "Built demos, campaign tools, app kits, and protocol-facing frontend experiences across client ecosystems.",
     proof: ["ApeChain app kit", "Cysic meme generator", "Recall trading UI", "Alvara minting app"],
     stack: "React / TypeScript / Next.js / Smart contracts / Web3 tooling",
-  },
-  {
-    number: "04",
-    title: "Buildspace Africa",
-    role: "Founder",
-    period: "2022 - Present",
-    href: "https://buildspace.africa/",
-    signal: "Community education",
-    line: "Built a technical community and training pipeline around workshops, partner tracks, and practical developer education.",
-    proof: ["5,000+ reached", "Approx. 500 trained", "Partner tracks", "Public events"],
-    stack: "Community strategy / Curriculum / Workshops / Partnerships",
   },
 ];
 
@@ -163,53 +157,36 @@ export default function Home() {
           JN
         </a>
         <nav className="nav-links" aria-label="Portfolio sections">
-          <a href="#engineering">Projects</a>
-          <a href="#devrel">Proof</a>
+          <a href="#engineering">Work</a>
+          <a href="#devrel">DevRel</a>
           <a href="#featured">Featured</a>
           <a href="#contact">Contact</a>
         </nav>
+        <ExternalLink href="mailto:u.joshuanwankwo@gmail.com" className="header-cta">
+          Email
+        </ExternalLink>
       </header>
 
       <section className="hero-section" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="eyebrow">Product Engineering / Developer Experience / Founder Execution</p>
           <h1 id="hero-title" className="hero-title">
-            <span>Joshua Nwankwo</span>
-            <span className="hero-motion">
-              <span>builds products</span>
-              <span className="hero-motion-row">
-                <span>that</span>
-                <span className="word-rotator" aria-hidden="true">
-                  {heroWords.map((word) => (
-                    <span key={word}>{word}</span>
-                  ))}
-                </span>
-              </span>
-              <span className="sr-only">explain themselves</span>
-            </span>
+            <span>Joshua</span>
+            <span>Nwankwo</span>
           </h1>
           <p className="hero-position">
-            AI-fluent product engineer and developer-facing builder, working across production systems, technical storytelling, and adoption loops.
+            I&apos;ve been building products people actually use since I was 17, I enjoy making complicated things easy to understand, and lean on the right AI tools to get from idea to shipped product faster.
           </p>
-          <div className="hero-actions" aria-label="Primary actions">
-            <a href="#engineering" className="button button-primary">
-              Featured work
-            </a>
-            <a href="#featured" className="button button-secondary">
-              Public signal
-            </a>
-          </div>
-          <div className="hero-fluency" aria-label="AI tooling fluency">
-            <span>AI tooling</span>
-            <span>Prototyping</span>
-            <span>Research</span>
-            <span>Docs</span>
+          <div className="hero-fluency" aria-label="What I do">
+            <span>Full-stack engineering</span>
+            <span>Developer relations</span>
+            <span>Technical writing</span>
           </div>
         </div>
 
         <aside className="hero-visual" aria-label="Portfolio visual system">
           <div className="portrait-panel">
-            <img src="/joshua-hero.jpg" alt="Portrait of Joshua Nwankwo" width="3947" height="4511" />
+            <img src="/joshua-hero.jpg" alt="Portrait of Joshua Nwankwo" width="3947" height="4511" fetchPriority="high" decoding="async" />
             <div className="corner-code">01</div>
           </div>
           <div className="geometry-board" aria-hidden="true">
@@ -232,77 +209,81 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="editorial-section" aria-labelledby="editorial-title">
+      <section className="lane-section" aria-labelledby="lane-title">
         <div className="section-heading">
-          <p className="eyebrow">One spine</p>
-          <h2 id="editorial-title">Build the product. Explain the product. Improve the loop.</h2>
-          <p>
-            The through-line is simple: ship useful software, make the system legible, and use the feedback to make the next version sharper.
-          </p>
+          <p className="eyebrow">Two paths, one spine</p>
+          <h2 id="lane-title">Engineering depth with developer-facing range.</h2>
         </div>
-        <div className="editorial-tags" aria-label="Core operating modes">
-          <span>Product systems</span>
-          <span>AI tooling</span>
-          <span>Developer experience</span>
-          <span>Founder execution</span>
+        <div className="lane-grid">
+          {proofLanes.map((lane, index) => (
+            <a href={lane.href} className="lane-card" key={lane.title}>
+              <span>0{index + 1}</span>
+              <strong>{lane.title}</strong>
+              <p>{lane.body}</p>
+              <small>{lane.tags.join(" / ")}</small>
+            </a>
+          ))}
         </div>
       </section>
 
       <section className="work-section" id="engineering" aria-labelledby="engineering-title">
         <div className="section-heading">
-          <p className="eyebrow">Featured work</p>
-          <h2 id="engineering-title">A compact index of shipped proof.</h2>
+          <p className="eyebrow">Selected work</p>
+          <h2 id="engineering-title">Proof, not a gallery.</h2>
         </div>
 
-        <div className="work-index">
+        <div className="work-list">
           {selectedWork.map((work) => (
-            <details className="work-row" key={work.title}>
-              <summary>
-                <span className="project-number">{work.number}</span>
-                <span className="project-title">
-                  <strong>{work.title}</strong>
-                  <small>
-                    {work.role} / {work.period}
-                  </small>
-                </span>
-                <span className="project-signal">{work.signal}</span>
-                <span className="expand-copy">Click to expand</span>
-              </summary>
-              <div className="work-detail">
+            <article className="work-item" key={work.title}>
+              <span className="work-number">{work.number}</span>
+              <div className="work-main">
+                <p className="case-kicker">
+                  <span>{work.role}</span>
+                  <span>{work.period}</span>
+                </p>
+                <h3>{work.title}</h3>
                 <p>{work.line}</p>
-                <div className="work-proof" aria-label={`${work.title} proof`}>
-                  {work.proof.map((item) => (
-                    <span key={item}>{item}</span>
-                  ))}
-                </div>
-                <p className="stack-line">{work.stack}</p>
-                {work.href ? (
-                  <ExternalLink href={work.href} className="text-link">
-                    Public reference
-                  </ExternalLink>
-                ) : null}
               </div>
-            </details>
+              <div className="work-proof" aria-label={`${work.title} proof`}>
+                {work.proof.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+              <p className="stack-line">{work.stack}</p>
+              {work.href ? (
+                <ExternalLink href={work.href} className="text-link">
+                  Public reference
+                </ExternalLink>
+              ) : (
+                <span className="work-noref" aria-hidden="true">
+                  —
+                </span>
+              )}
+            </article>
           ))}
         </div>
       </section>
 
       <section className="devrel-section" id="devrel" aria-labelledby="devrel-title">
         <div className="section-heading split-heading">
-          <p className="eyebrow">Developer relations</p>
-          <h2 id="devrel-title">Adoption work that still looks like engineering.</h2>
+          <p className="eyebrow">Developer relations &amp; community</p>
+          <h2 id="devrel-title">Adoption and community work that still looks like engineering.</h2>
         </div>
         <div className="signal-grid">
           {devrelSignals.map((signal) => (
             <article className="signal-card" key={signal.title}>
-              <span>{signal.role}</span>
-              <h3>{signal.title}</h3>
-              <p>{signal.proof}</p>
-              {signal.href ? (
-                <ExternalLink href={signal.href} className="text-link">
-                  Public reference
-                </ExternalLink>
-              ) : null}
+              <div className="signal-head">
+                <span>{signal.role}</span>
+                <h3>{signal.title}</h3>
+              </div>
+              <div className="signal-foot">
+                <p>{signal.proof}</p>
+                {signal.href ? (
+                  <ExternalLink href={signal.href} className="text-link">
+                    Public reference
+                  </ExternalLink>
+                ) : null}
+              </div>
             </article>
           ))}
         </div>
@@ -310,7 +291,7 @@ export default function Home() {
 
       <section className="featured-section" id="featured" aria-labelledby="featured-title">
         <div className="feature-media">
-          <img src="/joshua-techpoint.webp" alt="Joshua Nwankwo in a Techpoint Africa feature portrait" width="1200" height="630" />
+          <img src="/joshua-techpoint.webp" alt="Joshua Nwankwo in a Techpoint Africa feature portrait" width="1200" height="630" loading="lazy" decoding="async" />
         </div>
         <div>
           <div className="section-heading">
@@ -335,9 +316,18 @@ export default function Home() {
           <h2 id="about-title">Build the system. Translate the system. Improve the system.</h2>
         </div>
         <div className="about-grid">
-          <p>Frontend engineering made the product surface concrete.</p>
-          <p>Developer relations made the user journey visible.</p>
-          <p>Founder work sharpened the ownership loop from idea to shipped product.</p>
+          <article className="phase-card">
+            <span className="phase-verb">Build</span>
+            <p>As an engineer, I build the product itself — the screens, flows, and features people actually use.</p>
+          </article>
+          <article className="phase-card">
+            <span className="phase-verb">Translate</span>
+            <p>In developer relations, I turn complex tech into docs, demos, and guides that developers can follow.</p>
+          </article>
+          <article className="phase-card">
+            <span className="phase-verb">Improve</span>
+            <p>As a founder, I own the whole loop — from the first idea to a shipped, working product.</p>
+          </article>
         </div>
       </section>
 
