@@ -2,18 +2,17 @@
 
 Personal portfolio site for Joshua Nwankwo (product engineering, developer
 relations, and founder work). A single-page site built with the Next.js App
-Router and React, served through [vinext](https://github.com/cloudflare/vinext)
-(Vite) on Cloudflare Workers.
+Router and React.
 
 ## Prerequisites
 
-- Node.js `>=22.13.0`
+- Node.js `>=20.9.0`
 
 ## Quick start
 
 ```bash
 npm install
-npm run dev     # start the dev server (http://localhost:3000, or next free port)
+npm run dev     # start the dev server (http://localhost:3000)
 ```
 
 ## Project layout
@@ -32,26 +31,29 @@ Supporting files:
 - `app/not-found.tsx` — 404 page.
 - `app/robots.ts`, `app/sitemap.ts` — SEO endpoints.
 - `public/` — images (`joshua-hero.jpg`, press photos, `og.png`, favicon).
-- `tests/rendered-html.test.mjs` — smoke test asserting the built HTML renders
-  the expected portfolio content.
+- `tests/rendered-html.test.mjs` — smoke test asserting the source has the
+  expected portfolio content and no starter leftovers.
 
 ## Commands
 
 - `npm run dev` — start local development.
-- `npm run build` — produce the vinext production build.
+- `npm run build` — produce the production build (`.next`).
 - `npm start` — serve the production build locally.
-- `npm test` — build, then run the rendered-HTML smoke test.
+- `npm test` — run the content smoke test.
 - `npm run lint` — run ESLint.
+
+## Deployment
+
+Deploys to [Vercel](https://vercel.com) with zero configuration — Vercel
+auto-detects Next.js and runs `next build`. Set `NEXT_PUBLIC_SITE_URL` to the
+production URL so canonical/OpenGraph metadata resolves correctly.
 
 ## Notes
 
 - Styling is hand-written CSS in `app/globals.css`; Tailwind is available but the
   site relies on custom styles and design tokens.
 - Animations respect `prefers-reduced-motion`.
-- Drizzle/D1 tooling is present from the starter but unused — the site is static
-  content with no database.
 
 ## Tech stack
 
-Next.js 16 · React 19 · vinext · Vite · TypeScript · Cloudflare Workers
-(Wrangler)
+Next.js 16 · React 19 · TypeScript · Tailwind CSS (PostCSS)
