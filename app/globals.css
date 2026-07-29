@@ -383,16 +383,32 @@ main,
   background: var(--ember);
 }
 
+.tile-ember::before,
 .tile-ember::after {
-  content: "↗";
+  content: "";
   position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  font-size: 54px;
-  line-height: 1;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
   will-change: transform;
-  animation: nudgeArrow 4.5s ease-in-out infinite;
+}
+
+.tile-ember::before {
+  width: 74px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ink);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  animation: nudgeArrowLine 4.5s ease-in-out infinite;
+}
+
+.tile-ember::after {
+  width: 28px;
+  height: 28px;
+  border-top: 6px solid var(--ink);
+  border-right: 6px solid var(--ink);
+  transform: translate(calc(-50% + 25px), calc(-50% - 25px));
+  animation: nudgeArrowHead 4.5s ease-in-out infinite;
 }
 
 .tile-cyan {
@@ -1333,14 +1349,25 @@ main,
   }
 }
 
-@keyframes nudgeArrow {
+@keyframes nudgeArrowLine {
   0%,
   100% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   50% {
-    transform: translate(9px, -9px) rotate(10deg);
+    transform: translate(calc(-50% + 9px), calc(-50% - 9px)) rotate(-35deg);
+  }
+}
+
+@keyframes nudgeArrowHead {
+  0%,
+  100% {
+    transform: translate(calc(-50% + 25px), calc(-50% - 25px)) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(calc(-50% + 34px), calc(-50% - 34px)) rotate(10deg);
   }
 }
 

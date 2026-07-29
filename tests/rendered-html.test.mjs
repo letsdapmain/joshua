@@ -17,6 +17,8 @@ test("portfolio has the expected identity, metadata, and content", async () => {
     /Joshua Nwankwo \| Product Engineer and Developer Relations Engineer/,
   );
   assert.match(layout, /og\.png/);
+  assert.match(layout, /ogImageUrl/);
+  assert.match(layout, /VERCEL_PROJECT_PRODUCTION_URL/);
 
   // Hero + disciplines
   assert.match(page, /Joshua/);
@@ -48,6 +50,7 @@ test("no starter/scaffold leftovers remain", async () => {
       /_sites-preview|codex-preview|react-loading-skeleton|Starter Project/i,
     );
   }
+  assert.doesNotMatch(css, /↗/);
   assert.doesNotMatch(
     packageJson,
     /vinext|@cloudflare\/vite-plugin|react-loading-skeleton/,
@@ -55,6 +58,8 @@ test("no starter/scaffold leftovers remain", async () => {
 
   // SEO / routing files still present
   await Promise.all([
+    access(new URL("app/opengraph-image.png", root)),
+    access(new URL("app/twitter-image.png", root)),
     access(new URL("app/robots.ts", root)),
     access(new URL("app/sitemap.ts", root)),
     access(new URL("app/not-found.tsx", root)),
